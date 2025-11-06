@@ -60,7 +60,7 @@ contact: 'docker-introduction+admins@lists.carpentries.org'
 # Order of episodes in your lesson
 episodes: 
 - introduction.md
-- meet-docker.md
+- meet-podman.md
 - running-containers.md
 - managing-containers.md
 - docker-hub.md
