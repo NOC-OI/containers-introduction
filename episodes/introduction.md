@@ -142,6 +142,13 @@ flavour of Linux + the filesystem inside.
 [Podman](https://podman.io/) is a tool that allows you to build and run containers.
 It's not the only tool that can create containers, but is the one we've chosen for this workshop.
 
+### Docker and Podman
+
+Docker is another popular program used to run and manage containers. The syntax for using Docker is (almost) identical to Podman
+and you can usually build and run Podman containers in Docker and vice-versa. We have chosen Podman
+for this lesson as it has fewer licensing restrictions on Mac and Windows systems.
+
+
 ## Container Images
 
 One final term: while the **container** is an alternative filesystem layer that you
