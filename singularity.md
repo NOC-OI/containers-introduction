@@ -13,7 +13,7 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How is singularity different to Docker?
+- How is Singularity different to Docker?
 - How do I use my Docker images on a shared HPC?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -24,10 +24,24 @@ You can find more detail about using Singularity in the [singularity-introductio
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Singularity is a container engine, like Docker.
+Singularity is a container engine, like Docker and Podman.
 However, unlike Docker, container images are stored as single files called `.sif` (Singularity Image Format).
-For a number of reasons, Singularity suits shared High Performance Computing (HPC) environments much better than Docker, so is valuable to learn if you work in these environments.
-A related tool called singularity is a fork of Singularity that generally has the same command line interface.
+For a number of reasons, Singularity suits shared High Performance Computing (HPC) environments much better than Podman/Docker, so is valuable to learn if you work in these environments.
+A related tool called Apptainer is a fork of Singularity that generally has the same command line interface.
+
+## Install Singularity/Apptainer
+
+Singularity or Apptainer are installed on many HPC systems, often as a loadable module which can be accesed with the `module load` command. 
+
+If they are not installed you can install Apptainer yourself using the unprivileged pre-built binaries.
+
+```bash
+curl -s https://raw.githubusercontent.com/apptainer/apptainer/main/tools/install-unprivileged.sh | bash -s - apptainer
+cd apptainer/bin
+./apptainer
+```
+
+Apptainer also has a symlink for the `singularity` command to run `apptainer`.
 
 ::: challenge
 ## Singularity Command Line Interface
