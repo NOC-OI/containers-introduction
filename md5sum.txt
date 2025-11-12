@@ -21,5 +21,5 @@
 "learners/discuss.md" "2758e2e5abd231d82d25c6453d8abbc6" "site/built/discuss.md" "2025-11-12"
 "learners/e01-github-actions.md" "b6fa671ec840a60de8489950aa7d56ad" "site/built/e01-github-actions.md" "2025-11-12"
 "learners/reference.md" "bbb68ff9187bcebed81d18156df503cc" "site/built/reference.md" "2025-11-12"
-"learners/setup.md" "7429d3829708bc988fd335a0a237706f" "site/built/setup.md" "2025-11-12"
+"learners/setup.md" "848263605c94be0bcc714f76d3758539" "site/built/setup.md" "2025-11-12"
 "profiles/learner-profiles.md" "6fcb80ab2baf4f2762193ae4a6f1294a" "site/built/learner-profiles.md" "2025-11-12"
