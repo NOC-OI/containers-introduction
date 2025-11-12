@@ -99,7 +99,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="06-containers-on-the-cloud.html">Creating Containers on the Cloud</a></li><li><a class="dropdown-item" href="08-orchestration.html">Container Orchestration</a></li><li><a class="dropdown-item" href="discuss.html">Discussion</a></li><li><a class="dropdown-item" href="e01-github-actions.html">Using Docker with GitHub Actions</a></li><li><a class="dropdown-item" href="reference.html">Glossary</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="06-containers-on-the-cloud.html">Creating Containers on the Cloud</a></li><li><a class="dropdown-item" href="08-orchestration.html">Container Orchestration</a></li><li><a class="dropdown-item" href="discuss.html">Discussion</a></li><li><a class="dropdown-item" href="e01-github-actions.html">Using Docker with GitHub Actions</a></li><li><a class="dropdown-item" href="reference.html">Glossary</a></li><li><a class="dropdown-item" href="singularity.html">Running Containers on HPC</a></li>
           </ul></li>
       </ul></div>
     <!--
@@ -306,7 +306,7 @@
                       <li>
                         <a href="profiles.html">Learner Profiles</a>
                       </li>
-                      <li><a href="06-containers-on-the-cloud.html">Creating Containers on the Cloud</a></li><li><a href="08-orchestration.html">Container Orchestration</a></li><li><a href="discuss.html">Discussion</a></li><li><a href="e01-github-actions.html">Using Docker with GitHub Actions</a></li><li><a href="reference.html">Glossary</a></li>
+                      <li><a href="06-containers-on-the-cloud.html">Creating Containers on the Cloud</a></li><li><a href="08-orchestration.html">Container Orchestration</a></li><li><a href="discuss.html">Discussion</a></li><li><a href="e01-github-actions.html">Using Docker with GitHub Actions</a></li><li><a href="reference.html">Glossary</a></li><li><a href="singularity.html">Running Containers on HPC</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -344,7 +344,7 @@
         <h1>Running Containers on HPC</h1>
         <p>Last updated on 2025-11-12 |
 
-        <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/instructors/singularity.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/learners/singularity.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
 
 
@@ -361,7 +361,7 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>How is singularity different to Docker?</li>
+<ul><li>How is Singularity different to Docker?</li>
 <li>How do I use my Docker images on a shared HPC?</li>
 </ul></div>
 </div>
@@ -390,13 +390,28 @@ Carpentries workshop.</p>
 </div>
 </div>
 </div>
-<p>Singularity is a container engine, like Docker. However, unlike
-Docker, container images are stored as single files called
+<p>Singularity is a container engine, like Docker and Podman. However,
+unlike Docker, container images are stored as single files called
 <code>.sif</code> (Singularity Image Format). For a number of reasons,
 Singularity suits shared High Performance Computing (HPC) environments
-much better than Docker, so is valuable to learn if you work in these
-environments. A related tool called singularity is a fork of Singularity
-that generally has the same command line interface.</p>
+much better than Podman/Docker, so is valuable to learn if you work in
+these environments. A related tool called Apptainer is a fork of
+Singularity that generally has the same command line interface.</p>
+<section><h2 class="section-heading" id="install-singularityapptainer">Install Singularity/Apptainer<a class="anchor" aria-label="anchor" href="#install-singularityapptainer"></a></h2>
+<hr class="half-width"><p>Singularity or Apptainer are installed on many HPC systems, often as
+a loadable module which can be accesed with the <code>module load</code>
+command.</p>
+<p>If they are not installed you can install Apptainer yourself using
+the unprivileged pre-built binaries.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://raw.githubusercontent.com/apptainer/apptainer/main/tools/install-unprivileged.sh <span class="kw">|</span> <span class="fu">bash</span> <span class="at">-s</span> <span class="at">-</span> apptainer</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> apptainer/bin</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">./apptainer</span></span></code></pre>
+</div>
+<p>Apptainer also has a symlink for the <code>singularity</code> command
+to run <code>apptainer</code>.</p>
 <div id="singularity-command-line-interface" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -416,7 +431,7 @@ has. Which one do you think is the equivalent of
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p><code>singularity run</code> behaves similarly to
 <code>docker run</code>, but as we will see, the arguments are somewhat
@@ -425,32 +440,32 @@ different.</p>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="running-docker-containers">Running Docker Containers<a class="anchor" aria-label="anchor" href="#running-docker-containers"></a></h2>
+</section><section><h2 class="section-heading" id="running-docker-containers">Running Docker Containers<a class="anchor" aria-label="anchor" href="#running-docker-containers"></a></h2>
 <hr class="half-width"><p>Since Singularity containers have their own file format, if we have a
 Docker image we want to run, it first has to be converted. We can do
 this using <code>singularity pull</code>. For example, we can pull the
 container we previously pushed to Docker Hub:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://alice/alpine-python</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://alice/alpine-python</span></code></pre>
 </div>
 <p>This creates a file called <code>alpine_python.sif</code> in our
 working directory. To run this container, we then use
 <code>singularity run</code>:</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">singularity</span> run alpine_python.sif</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> run alpine_python.sif</span></code></pre>
 </div>
 </section><section><h2 class="section-heading" id="singularity-exec">Singularity Exec<a class="anchor" aria-label="anchor" href="#singularity-exec"></a></h2>
 <hr class="half-width"><p>If we want to modify the command run in the container, we have to use
 <code>singularity exec</code>. For example, to make Python add numbers
 like in our sum example, we could do:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">apptainer</span> exec alpine_python.sif python <span class="at">-c</span> <span class="st">'print(1 + 1)'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">apptainer</span> exec alpine_python.sif python <span class="at">-c</span> <span class="st">'print(1 + 1)'</span></span></code></pre>
 </div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
@@ -476,7 +491,7 @@ like in our sum example, we could do:</p>
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/instructors/singularity.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/learners/singularity.md" class="external-link">Edit on GitHub</a>
 
 	
         | <a href="https://github.com/carpentries-incubator/docker-introduction/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
