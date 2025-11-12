@@ -34,9 +34,6 @@ Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/d
 
 -->
 
-## Using Containers on an HPC Cluster
-
-[In this example](../instructors/singularity.md), you will learn about using running containers on HPC clusters.
 
 ## Seeking Examples
 
