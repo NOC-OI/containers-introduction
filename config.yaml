@@ -67,6 +67,7 @@ episodes:
 - creating-container-images.md
 - advanced-containers.md
 - docker-image-examples.md
+- singularity.md
 - reproduciblity.md
 
 # Information for Learners
