@@ -129,7 +129,6 @@
 <li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
 <li><a class="dropdown-item" href="e01-github-actions.html">Using Docker with GitHub Actions</a></li>
 <li><a class="dropdown-item" href="reference.html">Glossary</a></li>
-<li><a class="dropdown-item" href="singularity.html">Running Containers on HPC</a></li>
           </ul>
 </li>
       </ul>
@@ -346,7 +345,19 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="reproduciblity.html">9. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="singularity.html">9. Running Containers on HPC</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="reproduciblity.html">10. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -386,7 +397,6 @@
 <li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
 <li><a class="dropdown-item" href="e01-github-actions.html">Using Docker with GitHub Actions</a></li>
 <li><a class="dropdown-item" href="reference.html">Glossary</a></li>
-<li><a class="dropdown-item" href="singularity.html">Running Containers on HPC</a></li>
                     </ul>
 </div>
                 </div>
@@ -1385,7 +1395,7 @@ try before checking the solution.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To see if the <code>hello</code> container image is now on your
 computer, run:</p>
@@ -1546,7 +1556,7 @@ print a “hello world” message?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the same command as above, but with the <code>echo</code> command
 to print a message.</p>
@@ -1641,7 +1651,7 @@ you more information.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution 1 – Interactive </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run an interactive ubuntu container – you can use
 <code>podman image pull</code> first, or just run it with this
@@ -1679,7 +1689,7 @@ command:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Solution 2 – Run commands </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Run a ubuntu container, first with a command to read out the Linux
 version:</p>
@@ -2451,7 +2461,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -2578,7 +2588,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -2685,7 +2695,7 @@ different, like print “hello world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>To see your new image, run <code>podman image ls</code>. You
@@ -2948,7 +2958,7 @@ script using a container based on our recently created
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>We can run a container from the alpine-python container image
 using:</p>
@@ -3117,7 +3127,7 @@ name?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>This script comes from <a href="https://wiki.python.org/moin/SimplePrograms" class="external-link">the Python Wiki</a>
 and is set to add all numbers that are passed to it as arguments.</p>
@@ -3144,7 +3154,7 @@ you characterize the key components of a Podman command?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Here’s a breakdown of each piece of the command above</p>
 <ul>
@@ -3188,7 +3198,7 @@ computer? What’s inside?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>The Podman command to run the container interactively is:</p>
 <div class="codewrapper sourceCode" id="cb10">
@@ -3292,7 +3302,7 @@ this one. Once inside, try running the Python script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -3522,7 +3532,7 @@ images by using the <code>COPY</code> instruction in your
 </div>
 </section></section><section id="aio-docker-image-examples"><p>Content from <a href="docker-image-examples.html">Examples of Using Container Images in Practice</a></p>
 <hr>
-<p>Last updated on 2025-11-12 |
+<p>Last updated on 2025-11-18 |
 
         <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/episodes/docker-image-examples.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -3572,11 +3582,6 @@ testing code or deploying websites.</p>
 Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/docker-gdal-demo>
 
 -->
-</section><section><h2 class="section-heading" id="using-containers-on-an-hpc-cluster">Using Containers on an HPC Cluster<a class="anchor" aria-label="anchor" href="#using-containers-on-an-hpc-cluster"></a>
-</h2>
-<hr class="half-width">
-<p><a href="singularity.html">In this example</a>, you will learn about
-using running containers on HPC clusters.</p>
 </section><section><h2 class="section-heading" id="seeking-examples">Seeking Examples<a class="anchor" aria-label="anchor" href="#seeking-examples"></a>
 </h2>
 <hr class="half-width">
@@ -3598,6 +3603,138 @@ images in your research project.</li>
 </ul>
 </div>
 </div>
+</div>
+</section></section><section id="aio-singularity"><p>Content from <a href="singularity.html">Running Containers on HPC</a></p>
+<hr>
+<p>Last updated on 2025-11-18 |
+
+        <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/episodes/singularity.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How is Singularity different to Docker?</li>
+<li>How do I use my Docker images on a shared HPC?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Learn how to convert Docker images to SIF</li>
+<li>Distinguish the <code>run</code> and <code>exec</code>
+subcommands</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>You can find more detail about using Singularity in the <a href="https://carpentries-incubator.github.io/singularity-introduction/" class="external-link">singularity-introduction</a>
+Carpentries workshop.</p>
+</div>
+</div>
+</div>
+<p>Singularity is a container engine, like Docker and Podman. However,
+unlike Docker, container images are stored as single files called
+<code>.sif</code> (Singularity Image Format). For a number of reasons,
+Singularity suits shared High Performance Computing (HPC) environments
+much better than Podman/Docker, so is valuable to learn if you work in
+these environments. A related tool called Apptainer is a fork of
+Singularity that generally has the same command line interface.</p>
+<section><h2 class="section-heading" id="install-singularityapptainer">Install Singularity/Apptainer<a class="anchor" aria-label="anchor" href="#install-singularityapptainer"></a>
+</h2>
+<hr class="half-width">
+<p>Singularity or Apptainer are installed on many HPC systems, often as
+a loadable module which can be accesed with the <code>module load</code>
+command.</p>
+<p>If they are not installed you can install Apptainer yourself using
+the unprivileged pre-built binaries.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://raw.githubusercontent.com/apptainer/apptainer/main/tools/install-unprivileged.sh <span class="kw">|</span> <span class="fu">bash</span> <span class="at">-s</span> <span class="at">-</span> apptainer</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> apptainer/bin</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">./apptainer</span></span></code></pre>
+</div>
+<p>Apptainer also has a symlink for the <code>singularity</code> command
+to run <code>apptainer</code>.</p>
+<div id="singularity-command-line-interface" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="singularity-command-line-interface" class="callout-inner">
+<h3 class="callout-title">Singularity Command Line Interface</h3>
+<div class="callout-content">
+<p>Like we did with Docker, try to work out what commands Singularity
+has. Which one do you think is the equivalent of
+<code>docker run</code>?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p><code>singularity run</code> behaves similarly to
+<code>docker run</code>, but as we will see, the arguments are somewhat
+different.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="running-docker-containers">Running Docker Containers<a class="anchor" aria-label="anchor" href="#running-docker-containers"></a>
+</h2>
+<hr class="half-width">
+<p>Since Singularity containers have their own file format, if we have a
+Docker image we want to run, it first has to be converted. We can do
+this using <code>singularity pull</code>. For example, we can pull the
+container we previously pushed to Docker Hub:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">singularity</span> pull docker://alice/alpine-python</span></code></pre>
+</div>
+<p>This creates a file called <code>alpine_python.sif</code> in our
+working directory. To run this container, we then use
+<code>singularity run</code>:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">singularity</span> run alpine_python.sif</span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="singularity-exec">Singularity Exec<a class="anchor" aria-label="anchor" href="#singularity-exec"></a>
+</h2>
+<hr class="half-width">
+<p>If we want to modify the command run in the container, we have to use
+<code>singularity exec</code>. For example, to make Python add numbers
+like in our sum example, we could do:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">apptainer</span> exec alpine_python.sif python <span class="at">-c</span> <span class="st">'print(1 + 1)'</span></span></code></pre>
 </div>
 </section></section><section id="aio-reproduciblity"><p>Content from <a href="reproduciblity.html">Containers in Research Workflows: Reproducibility and Granularity</a></p>
 <hr>
@@ -3827,7 +3964,7 @@ disadvantages for each approach in the course Etherpad.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>This is not an exhaustive list but some of the advantages and
 disadvantages could be:</p>
