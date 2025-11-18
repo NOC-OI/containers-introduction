@@ -280,6 +280,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#github-actions-example">GitHub Actions Example</a></li>
+<li><a href="#geospatial-example">Geospatial Example</a></li>
 <li><a href="#seeking-examples">Seeking Examples</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -408,12 +409,135 @@ using containers.</p>
 you can learn more about continuous integration in the cloud and how you
 can use container images with GitHub to automate repetitive tasks like
 testing code or deploying websites.</p>
-<!--- Placeholder for
-## Geospatial Example
-
-Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/docker-gdal-demo>
-
--->
+</section><section><h2 class="section-heading" id="geospatial-example">Geospatial Example<a class="anchor" aria-label="anchor" href="#geospatial-example"></a></h2>
+<hr class="half-width"><p>The Github repository, <a href="https://github.com/NOC-OI/docker-gdal-demo" class="external-link uri">https://github.com/NOC-OI/docker-gdal-demo</a> contains an
+example Jupyter notebook which visualises some GeoTIFF files containing
+data about the extent of Arctic sea ice. Let’s build a container which
+let’s us run this code.</p>
+<div class="section level3">
+<h3 id="choosing-a-base-image">Choosing a base image<a class="anchor" aria-label="anchor" href="#choosing-a-base-image"></a></h3>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal"><li>Find a Jupyter base image to use, there are several supplied by the
+Jupyter project the project, find an appropriate minimal image to use as
+a base. (Hint: you don’t want images from Docker Hub)</li>
+<li>Download a copy of the Jupyter notebook and datafiles from <a href="https://github.com/NOC-OI/docker-gdal-demo/archive/refs/heads/main.zip" class="external-link">the
+Github repository</a>.</li>
+<li>Extract the zip file, this should create a directory called
+<code>docker-gdal-demo-main</code> containing the notebook
+(gdal-example.ipynb) and several <code>.tif</code> files.</li>
+<li>Run the Jupyter container with the directory you extracted the zip
+into mounted as <code>/home/jovyan/work</code>.</li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>The documentation from <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/" class="external-link">https://jupyter-docker-stacks.readthedocs.io/en/latest/</a>
+mentions the base-notebook image hosted on the quay.io container
+registry.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">curl</span> https://codeload.github.com/NOC-OI/docker-gdal-demo/zip/refs/heads/main <span class="at">-o</span> main.zip</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">unzip</span> main.zip <span class="co">#this probably doesn't work in windows cmd/powershell, unzip by right clicking and choosing extract in the file manager.</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work quay.io/jupyter/base-notebook</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="exposing-network-ports">Exposing Network Ports<a class="anchor" aria-label="anchor" href="#exposing-network-ports"></a></h3>
+<p>At the end of it’s startup sequence Jupyter tells us to connect to a
+URL starting <a href="http://127.0.0.1" class="external-link uri">http://127.0.0.1</a>
+or <a href="http://localhost" class="external-link uri">http://localhost</a>. These
+refer to a service running on our own computer, but if we try to connect
+to this we will get an error because the Jupyter server is only
+accessible inside the container. To get access to the Jupyter service we
+need to expose a network port from our container to our host system. The
+<code>-p</code> option to Podman allows us to map ports from the host to
+the container. Jupyter notebook server is accessed via port 8888. We are
+going to map 8888 port in the container to 8888 port on our (host)
+computer.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work <span class="at">-p</span> 8888:8888 quay.io/jupyter/base-notebook </span></code></pre>
+</div>
+</div>
+<div class="section level3">
+<h3 id="installing-the-dependencies">Installing the Dependencies<a class="anchor" aria-label="anchor" href="#installing-the-dependencies"></a></h3>
+<p>When we try to run the notebook, we see we don’t have the gdal
+libraries available.</p>
+<p>Let’s try to install the dependecies inside the container. To do it,
+we are going to run the container in the interactive mode. We do need to
+install new packages and we will need root access.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">-it</span> <span class="at">-e</span> GRANT_SUDO=yes <span class="at">--user</span> root quay.io/jupyter/base-notebook /bin/bash</span></code></pre>
+</div>
+<p>We are going to install Python libraries gdal and matplotlib, which
+we use in this our notebook.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">mamba</span> install gdal matplotlib</span></code></pre>
+</div>
+<p>It worked in the container, lets put it in the Docekrfile and try to
+build an image.</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">DOCKERFILE<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode dockerfile" tabindex="0"><code class="sourceCode dockerfile"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">FROM</span> quay.io/jupyter/base-notebook</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">mamba</span> install gdal matplotlib</span></code></pre>
+</div>
+<p>Let’s build the container and name it jupyter-gdal.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">podman</span> build <span class="at">-t</span> jupyter-gdal .</span></code></pre>
+</div>
+<p>Let’s run it. Dont’ forget to mount our folder with data we want to
+visualise</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work <span class="at">-p</span> 8888:8888 jupyter-gdal</span></code></pre>
+</div>
+<div id="discussion1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<p>How else could we have solved this problem?</p>
+<p>There are several other approaches we could have taken to running
+this script. We could have included the notebook file inside the
+container. Or we could have converted the Jupyter notebook to a Python
+script which creates an image file and saves that to our home directory.
+We could have even included the data inside the container.</p>
+<p>Discuss which approach would you take and why.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="seeking-examples">Seeking Examples<a class="anchor" aria-label="anchor" href="#seeking-examples"></a></h2>
 <hr class="half-width"><p>Do you have another example of using Docker in a workflow related to
 your field? Please <a href="https://github.com/carpentries-incubator/docker-introduction/issues/new" class="external-link">open
@@ -489,7 +613,7 @@ images in your research project.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/instructor/docker-image-examples.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/docker-image-examples.html",
-  "dateCreated": "2025-11-12",
+  "dateCreated": "2025-11-18",
   "dateModified": "2025-11-18",
   "datePublished": "2025-11-18"
 }
