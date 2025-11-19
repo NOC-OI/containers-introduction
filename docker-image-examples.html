@@ -364,7 +364,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Examples of Using Container Images in Practice</h1>
-        <p>Last updated on 2025-11-18 |
+        <p>Last updated on 2025-11-19 |
 
         <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/episodes/docker-image-examples.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -412,15 +412,13 @@ testing code or deploying websites.</p>
 example Jupyter notebook which visualises some GeoTIFF files containing
 data about the extent of Arctic sea ice. Let’s build a container which
 let’s us run this code.</p>
-<div class="section level3">
-<h3 id="choosing-a-base-image">Choosing a base image<a class="anchor" aria-label="anchor" href="#choosing-a-base-image"></a></h3>
-<div id="challenge1" class="callout challenge">
+<div id="choosing-a-base-image" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="choosing-a-base-image" class="callout-inner">
+<h3 class="callout-title">Choosing a base image</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Find a Jupyter base image to use, there are several supplied by the
 Jupyter project the project, find an appropriate minimal image to use as
@@ -440,7 +438,7 @@ into mounted as <code>/home/jovyan/work</code>.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The documentation from <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/" class="external-link">https://jupyter-docker-stacks.readthedocs.io/en/latest/</a>
 mentions the base-notebook image hosted on the quay.io container
@@ -451,7 +449,6 @@ registry.</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">curl</span> https://codeload.github.com/NOC-OI/docker-gdal-demo/zip/refs/heads/main <span class="at">-o</span> main.zip</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">unzip</span> main.zip <span class="co">#this probably doesn't work in windows cmd/powershell, unzip by right clicking and choosing extract in the file manager.</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work quay.io/jupyter/base-notebook</span></code></pre>
-</div>
 </div>
 </div>
 </div>
@@ -611,9 +608,9 @@ images in your research project.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/docker-image-examples.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/docker-image-examples.html",
-  "dateCreated": "2025-11-18",
-  "dateModified": "2025-11-18",
-  "datePublished": "2025-11-18"
+  "dateCreated": "2025-11-19",
+  "dateModified": "2025-11-19",
+  "datePublished": "2025-11-19"
 }
 
   </script><script>
