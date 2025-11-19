@@ -438,7 +438,7 @@ into mounted as <code>/home/jovyan/work</code>.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The documentation from <a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/" class="external-link">https://jupyter-docker-stacks.readthedocs.io/en/latest/</a>
 mentions the base-notebook image hosted on the quay.io container
@@ -470,7 +470,7 @@ computer.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work <span class="at">-p</span> 8888:8888 quay.io/jupyter/base-notebook </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">podman</span> container run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work <span class="at">-p</span> 8888:8888 quay.io/jupyter/base-notebook </span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -483,7 +483,7 @@ install new packages and we will need root access.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">-it</span> <span class="at">-e</span> GRANT_SUDO=yes <span class="at">--user</span> root quay.io/jupyter/base-notebook /bin/bash</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">podman</span> container run <span class="at">-it</span> <span class="at">-e</span> GRANT_SUDO=yes <span class="at">--user</span> root quay.io/jupyter/base-notebook /bin/bash</span></code></pre>
 </div>
 <p>We are going to install Python libraries gdal and matplotlib, which
 we use in this our notebook.</p>
@@ -512,7 +512,7 @@ visualise</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work <span class="at">-p</span> 8888:8888 jupyter-gdal</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">podman</span> container run <span class="at">--mount</span> type=bind,source=<span class="va">$PWD</span>/docker-gdal-demo-main,target=/home/jovyan/work <span class="at">-p</span> 8888:8888 jupyter-gdal</span></code></pre>
 </div>
 <div id="discussion1" class="callout discussion">
 <div class="callout-square">
