@@ -32,10 +32,11 @@ automate repetitive tasks like testing code or deploying websites.
 The Github repository, https://github.com/NOC-OI/docker-gdal-demo contains an example Jupyter notebook which visualises some GeoTIFF files containing data about the extent of Arctic sea ice.
 Let's build a container which let's us run this code.
 
-### Choosing a base image
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
+
+## Choosing a base image
 
 1. Find a Jupyter base image to use, there are several supplied by the Jupyter project the project, find an appropriate minimal image to use as a base. (Hint: you don't want images from Docker Hub)
 2. Download a copy of the Jupyter notebook and datafiles from [the Github repository](https://github.com/NOC-OI/docker-gdal-demo/archive/refs/heads/main.zip).
