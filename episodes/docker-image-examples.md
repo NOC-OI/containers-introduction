@@ -66,7 +66,7 @@ To get access to the Jupyter service we need to expose a network port from our c
 Jupyter notebook server is accessed via port 8888. We are going to map 8888 port in the container to 8888 port on our (host) computer.
 
 ```bash
-podman run --mount type=bind,source=$PWD/docker-gdal-demo-main,target=/home/jovyan/work -p 8888:8888 quay.io/jupyter/base-notebook 
+podman container run --mount type=bind,source=$PWD/docker-gdal-demo-main,target=/home/jovyan/work -p 8888:8888 quay.io/jupyter/base-notebook 
 ```
 
 ### Installing the Dependencies
@@ -77,7 +77,7 @@ Let's try to install the dependecies inside the container. To do it, we are goin
 We do need to install new packages and we will need root access.
 
 ```bash
-podman run -it -e GRANT_SUDO=yes --user root quay.io/jupyter/base-notebook /bin/bash
+podman container run -it -e GRANT_SUDO=yes --user root quay.io/jupyter/base-notebook /bin/bash
 ```
 
 We are going to install Python libraries gdal and matplotlib, which we use in this our notebook.
@@ -101,7 +101,7 @@ podman build -t jupyter-gdal .
 
 Let's run it. Dont' forget to mount our folder with data we want to visualise
 ```bash
-podman run --mount type=bind,source=$PWD/docker-gdal-demo-main,target=/home/jovyan/work -p 8888:8888 jupyter-gdal
+podman container run --mount type=bind,source=$PWD/docker-gdal-demo-main,target=/home/jovyan/work -p 8888:8888 jupyter-gdal
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
